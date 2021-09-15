@@ -1,0 +1,50 @@
+{
+  "name": "mintableburnabletoken",
+  "version": "1.0.0",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "private-network": "ganache-cli --time 1970-01-01T00:00:00Z -e 1000000 -l 10000000",
+    "compile": "truffle compile",
+    "test": "truffle test --compile-all --migrations_directory test",
+    "deploy-dev": "truffle exec deploy/deployToken.js --network development --reset --compile-all",
+    "deploy-ropsten": "truffle exec deploy/deployToken.js --network ropsten --reset --compile-all",
+    "deploy-mainnet": "truffle exec deploy/deployToken.js --network mainnet --compile-all",
+    "deploy-bsc-testnet": "truffle exec deploy/deployToken.js --network bsc_test --compile-all",
+    "deploy-bsc": "truffle exec deploy/deployToken.js --network bsc_mainnet --compile-all",
+    "lint-fix": "npm run lint-js-fix && npm run lint-sol-fix",
+    "lint-js-fix": "prettier --write \"./**/*.js\"",
+    "lint-sol-fix": "prettier --write \"contracts/**/*.sol\""
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.1.0",
+    "@truffle/hdwallet-provider": "^1.4.0",
+    "bignumber.js": "^9.0.0",
+    "dotenv": "^8.2.0",
+    "ganache-cli": "^6.12.2",
+    "truffle": "^5.1.49",
+    "web3": "1.2.11"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-google": "^0.14.0",
+    "eth-gas-reporter": "^0.2.22",
+    "mocha": "^8.1.1",
+    "prettier": "^2.2.1",
+    "prettier-plugin-solidity": "*",
+    "solhint": "^3.3.4",
+    "solhint-plugin-prettier": "^0.0.5",
+    "solidity-coverage": "^0.7.1",
+    "truffle-abi": "^1.0.3",
+    "truffle-assertions": "^0.9.2",
+    "truffle-flattener": "^1.5.0",
+    "truffle-plugin-verify": "^0.5.7",
+    "truffle-test-utils": "^0.1.0",
+    "typechain": "^5.0.0"
+  }
+}
